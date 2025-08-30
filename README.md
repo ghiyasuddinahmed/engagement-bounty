@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Engagement Bounty - Programs Management
+
+A Next.js application for managing bug bounty programs with a clean, modern UI built using Tailwind CSS.
+
+## Features
+
+### Programs Management
+- **View Programs**: Display all programs in a responsive table format
+- **Create Program**: Add new programs through a comprehensive modal form
+- **Asset Management**: Add/remove assets with WEB and MOBILE type options
+- **Bounty Eligibility**: Set eligibility status (ELIGIBLE/INELIGIBLE) for each asset
+- **Duplicate Prevention**: Prevents duplicate asset identifiers
+- **Real-time Updates**: New programs are immediately added to the table
+
+### UI Components
+- **Responsive Design**: Mobile-first approach with responsive grid layouts
+- **Modal System**: Clean, accessible modal for program creation
+- **Form Validation**: Required field validation and user feedback
+- **Interactive Elements**: Hover effects, transitions, and smooth animations
+- **Accessibility**: Proper focus states and keyboard navigation
+
+## Technology Stack
+
+- **Frontend**: Next.js 15 with React 19
+- **Styling**: Tailwind CSS with minimal custom CSS
+- **Icons**: Lucide React for consistent iconography
+- **TypeScript**: Full type safety and better development experience
 
 ## Getting Started
 
-First, run the development server:
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open Browser**
+   Navigate to `http://localhost:3000`
+
+4. **Access Programs Page**
+   Click "View Programs" button or navigate to `/programs`
+
+## Usage
+
+### Creating a New Program
+
+1. Click the "Create Program" button
+2. Fill in the required fields:
+   - Program Name (required)
+   - Start Date (required)
+   - Website (optional)
+   - Twitter/X (optional)
+   - Description (optional)
+3. Add assets using the Bounty Eligibility section:
+   - Select asset type (WEB or MOBILE)
+   - Enter asset identifier
+   - Add description
+   - Set bounty eligibility (ELIGIBLE or INELIGIBLE)
+   - Click "Add" to include the asset
+4. Click "Submit" to create the program
+
+### Managing Assets
+
+- **Add Asset**: Fill in asset details and click "Add"
+- **Delete Asset**: Click the trash icon next to any asset
+- **Duplicate Prevention**: System prevents adding assets with duplicate identifiers
+- **Multiple Assets**: Programs can have multiple assets with different eligibility statuses
+
+### Program Table
+
+- **Sortable Columns**: Click column headers to sort (visual indicators included)
+- **Interactive Rows**: Hover effects and clickable program names
+- **Status Indicators**: Color-coded bounty eligibility status
+- **Responsive Design**: Horizontal scrolling on mobile devices
+
+## File Structure
+
+```
+app/
+├── programs/
+│   ├── page.tsx          # Main programs page component
+│   └── programs.css      # Custom CSS for programs page
+├── globals.css           # Global Tailwind CSS configuration
+├── layout.tsx            # Root layout component
+└── page.tsx              # Home page with navigation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Styling
+- Modify `app/programs/programs.css` for custom CSS
+- Update Tailwind classes in components for design changes
+- Custom color schemes can be adjusted in `app/globals.css`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Functionality
+- Add new form fields in the modal
+- Implement additional validation rules
+- Extend asset types beyond WEB/MOBILE
+- Add program editing capabilities
 
-## Learn More
+## Browser Support
 
-To learn more about Next.js, take a look at the following resources:
+- Modern browsers with ES6+ support
+- Responsive design for mobile and desktop
+- Progressive enhancement for older browsers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
