@@ -7,9 +7,9 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
+# Install ALL dependencies (including dev dependencies) for building
 COPY package.json package-lock.json* ./
-RUN npm ci --only=production
+RUN npm ci
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -19,7 +19,8 @@ COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
-
+# Disable telemetry during build.
+ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN npm run build
 
@@ -28,7 +29,8 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-
+# Disable telemetry during runtime.
+ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

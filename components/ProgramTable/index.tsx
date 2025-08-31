@@ -44,7 +44,7 @@ export function ProgramsTable({ programs }: ProgramsTableProps) {
           </thead>
           <tbody>
             {programs.map((program) =>
-              program.assets.map((asset, assetIndex) => (
+              program.assets.map((asset) => (
                 <tr
                   key={`${program.id}-${asset.id}`}
                   className="border-b last:border-0"
